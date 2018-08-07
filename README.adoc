@@ -1,0 +1,11 @@
+= JAX-RS Analyzer Gradle Plugin Samples
+
+Samples for https://github.com/grimmjo/jaxrs-analyzer-gradle-plugin[JAX-RS Analyzer Gradle Plugin]
+
+Usage:
+. Clone the project
+. Run the `./gradlew analyze` or `./gradlew.bat analyze`
+. After building your project, the documentation resides under 'build/jaxrs-analyzer/'.
+
+== Contributing
+Feedback, bug reports and ideas for improvement are very welcome! Feel free to fork, comment, file an issue, etc. ;-)
