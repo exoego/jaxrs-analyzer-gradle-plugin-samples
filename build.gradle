@@ -1,45 +1,35 @@
-buildscript {
-    repositories {
-        jcenter()
-        mavenLocal()
-    }
-    dependencies {
-        classpath 'com.github.grimmjo:jaxrs-analyzer-gradle-plugin:0.2'
-    }
-}
-
 plugins {
     id "java"
+    id("io.github.grimmjo.jaxrs-analyzer") version "0.4"
 }
 
 apply plugin: 'java'
-apply plugin: 'jaxrs-analyzer-gradle-plugin'
+apply plugin: 'io.github.grimmjo.jaxrs-analyzer'
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 group = 'com.github.grimmjo'
 version = '0.2'
 
 dependencies {
-    compile 'javax:javaee-api:7.0'
+    implementation 'javax:javaee-api:7.0'
 }
 
 jaxRsAnalyzer {
     // Available backends are plaintext (default), swagger and asciidoc
-    backend 'swagger', 'plaintext', 'asciidoc'
+    backend = ['swagger', 'plaintext', 'asciidoc']
     // Domain of the deployed project, defaults to ""
-    domain 'localhost:8080'
+    domain = 'localhost:8080'
     // Comma separated list of Swagger schemes (only for if backend is swagger, defaults to http)
-    schemes 'http', 'https'
+    schemes = ['http', 'https']
     // Enables rendering of Swagger tags (defaults to false -> default tag will be used)
-    renderTags true
+    renderTags = true
     // The number at which path position the Swagger tags will be extracted (defaults to 0)
-    tagPathOffset 0
+    tagPathOffset = 0
     // Directory (relative to buildDir) where resources will be generated (defaults to jaxrs-analyzer)
-    outputDirectory 'jaxrs-analyzer'
+    outputDirectory = 'jaxrs-analyzer'
 }
 
 
